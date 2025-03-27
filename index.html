@@ -1,37 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Website</title>
-    <style>
-        <!--allows user to scroll through webpage; sets width and height to user’s interface-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My GitHub Pages Website</title>
+  <style>
+    /* Reset default margins and paddings */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    /* Container for the background */
     .background {
       position: relative;
       width: 100%;
       height: 100vh;
+      overflow: hidden;
     }
-    <!--displays website background behind the docsbot sidebar-->
+    /* The iframe should cover the full screen */
     .background iframe {
-      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100vh;
       border: none;
       z-index: -1;
     }
-    </style>
+  </style>
 </head>
 <body>
-    <!--below code is for embedding full website URL/file as background -->
-<!-- wrapper class for applying css styles to background -->
-<div class="background">
-    <!-- desired company’s website is embedded here -->
+  <div class="background">
     <iframe src="https://www.guildmortgage.com"></iframe>
-</div>
+  </div>
     
-<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};</script>
-<script type="text/javascript">
-  DocsBotAI.init({id: "xwIbVScaj0QaHNNbXE88/YqlwABYvYvhIYIMJxGvl"});
-</script>
+  <script type="text/javascript">
+    window.DocsBotAI = window.DocsBotAI || {};
+    DocsBotAI.init = function(e) {
+      return new Promise(function(resolve, reject) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.async = true;
+        script.src = "https://widget.docsbot.ai/chat.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(script, s);
+        script.addEventListener("load", function() {
+          Promise.all([
+            new Promise(function(res, rej) {
+              window.DocsBotAI.mount(Object.assign({}, e)).then(res).catch(rej);
+            }),
+            new Promise(function(resolveQuery) {
+              function check() {
+                if (document.querySelector("#docsbotai-root")) {
+                  resolveQuery(document.querySelector("#docsbotai-root"));
+                } else {
+                  setTimeout(check, 100);
+                }
+              }
+              check();
+            })
+          ]).then(function() {
+            resolve();
+          }).catch(function(err) {
+            reject(err);
+          });
+        });
+        script.addEventListener("error", function(e) {
+          reject(e.message);
+        });
+      });
+    };
+  </script>
+  <script type="text/javascript">
+    DocsBotAI.init({id: "xwIbVScaj0QaHNNbXE88/YqlwABYvYvhIYIMJxGvl"});
+  </script>
 </body>
 </html>
